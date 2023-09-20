@@ -9,6 +9,7 @@ public class Main_Logic {
 
         display.setVisible(true);
         display.setLocale(null);
+
     }
 
 }
