@@ -1,17 +1,22 @@
+
 package GUI;
 
-import java.util.HashSet;
-import java.util.Set;
 
-/**
- *
- * @author lautajam
- */
 public class Display_EDiary extends javax.swing.JFrame {
 
-    /**
-     * Creates new form DIsplay_Data
-     */
+
+    //Global constats
+    private final int LENGTH_ARRAYS = 10;
+
+    // Global variables
+    String dnis[]       = new String[LENGTH_ARRAYS];
+    String names[]      = new String[LENGTH_ARRAYS];
+    String surnames[]   = new String[LENGTH_ARRAYS];
+    String address[]    = new String[LENGTH_ARRAYS];
+    String telephones[] = new String[LENGTH_ARRAYS];
+    String birthdays[]  = new String[LENGTH_ARRAYS];
+
+
     public Display_EDiary() {
         initComponents();
     }
@@ -83,6 +88,11 @@ public class Display_EDiary extends javax.swing.JFrame {
 
         btn_save.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btn_save.setText("SAVE");
+        btn_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_saveActionPerformed(evt);
+            }
+        });
 
         lbl_index.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lbl_index.setText("Index:");
@@ -207,11 +217,20 @@ public class Display_EDiary extends javax.swing.JFrame {
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {
 
         String txt_index_string = this.txt_index.getText();
+        int txt_index_number = Integer.parseInt(txt_index_string);
 
-        if(!txt_index_string.equals("9")){
-            int txt_index_number = Integer.parseInt(txt_index_string);
+        if(txt_index_number < 9){
 
-            txt_index_string = String.valueOf(txt_index_number + 1);
+            txt_index_number++;
+
+            txt_index_string = String.valueOf(txt_index_number);
+
+            txt_dni.setText(dnis[txt_index_number]);
+            txt_name.setText(names[txt_index_number]);
+            txt_surname.setText(surnames[txt_index_number] );
+            txt_address.setText(address[txt_index_number]);
+            txt_telephone.setText(telephones[txt_index_number]);
+            txt_birthday.setText(birthdays[txt_index_number]);
 
             this.txt_index.setText(txt_index_string);
         }
@@ -221,19 +240,40 @@ public class Display_EDiary extends javax.swing.JFrame {
     private void btn_previousActionPerformed(java.awt.event.ActionEvent evt) {
 
         String txt_index_string = this.txt_index.getText();
+        int txt_index_number = Integer.parseInt(txt_index_string);
 
-        if(!txt_index_string.equals("0")){
-            int txt_index_number = Integer.parseInt(txt_index_string);
+        if(txt_index_number > 0){
 
-            txt_index_string = String.valueOf(txt_index_number - 1);
+            txt_index_number--;
+
+            txt_index_string = String.valueOf(txt_index_number);
+
+            txt_dni.setText(dnis[txt_index_number]);
+            txt_name.setText(names[txt_index_number]);
+            txt_surname.setText(surnames[txt_index_number] );
+            txt_address.setText(address[txt_index_number]);
+            txt_telephone.setText(telephones[txt_index_number]);
+            txt_birthday.setText(birthdays[txt_index_number]);
 
             this.txt_index.setText(txt_index_string);
         }
     }
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {
+
+        String txt_index_string = this.txt_index.getText();
+        int txt_index_number = Integer.parseInt(txt_index_string);
+
+        dnis[txt_index_number]       = txt_dni.getText();
+        names[txt_index_number]      = txt_name.getText();
+        surnames[txt_index_number]   = txt_surname.getText();
+        address[txt_index_number]    = txt_address.getText();
+        telephones[txt_index_number] = txt_telephone.getText();
+        birthdays[txt_index_number]  = txt_birthday.getText();
+
+    }
+
+
 
     // Variables declaration - do not modify
     private javax.swing.JButton btn_next;
