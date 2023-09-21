@@ -1,13 +1,26 @@
-# Electronic_Diary
+# Electronic Diary Program
 
-You need a program to manage the contacts in an electronic address book.
+## Description
 
-    *A. The following data must be allowed to be entered in the address book: ID, name, last name, date of birth,
-    telephone and address (each in its corresponding textField), date of birth, telephone and address
-    (each one in its corresponding textField).
-    *B. It is necessary to store the data of 10 persons. For this purpose, it is proposed to use 1
-    vector to store the values of each of the fields (taking into account that there may be different types of data),
-    and different types of data), where each index will indicate the data of a given person in all vectors.
-    person in all the vectors.
-    *C. The program must allow to load the values in a determined position of the vector (when clicking on the button
-    the load button) and go through the vector finding the loaded data.
+This program is designed to manage contacts in an electronic address book. It allows users to enter and store contact information for up to 10 people.
+
+The program is the final project of the Java beginners course by TodoCOde https://todocodeacademy.com/course/java-para-principiantes/
+
+## Features
+
+### A. Data Entry
+The program allows users to enter the following data for each contact:
+- ID
+- First Name
+- Last Name
+- Date of Birth
+- Telephone Number
+- Address
+
+Each of these data fields is represented using text fields in the program's user interface.
+
+### B. Data Storage
+To store contact information, the program uses a vector to hold the values for each field. This vector is designed to accommodate up to 10 contacts. Each index in the vector corresponds to a specific person's data, making it easy to retrieve and manipulate individual contact information.
+
+### C. Loading and Retrieval of Data
+Users can load contact data into the vector by clicking the "Load" button. Once the data is loaded, the program allows users to navigate through the vector to find and view the loaded contact information.

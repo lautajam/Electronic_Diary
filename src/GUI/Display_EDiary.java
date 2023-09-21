@@ -2,19 +2,20 @@
 package GUI;
 
 
-public class Display_EDiary extends javax.swing.JFrame {
+import java.awt.*;
 
+public class Display_EDiary extends javax.swing.JFrame {
 
     //Global constats
     private final int LENGTH_ARRAYS = 10;
 
     // Global variables
-    String dnis[]       = new String[LENGTH_ARRAYS];
-    String names[]      = new String[LENGTH_ARRAYS];
-    String surnames[]   = new String[LENGTH_ARRAYS];
-    String address[]    = new String[LENGTH_ARRAYS];
-    String telephones[] = new String[LENGTH_ARRAYS];
-    String birthdays[]  = new String[LENGTH_ARRAYS];
+    String[] dnis = new String[LENGTH_ARRAYS];
+    String[] names = new String[LENGTH_ARRAYS];
+    String[] surnames = new String[LENGTH_ARRAYS];
+    String[] address = new String[LENGTH_ARRAYS];
+    String[] telephones = new String[LENGTH_ARRAYS];
+    String[] birthdays = new String[LENGTH_ARRAYS];
 
 
     public Display_EDiary() {
@@ -25,20 +26,21 @@ public class Display_EDiary extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lbl_title = new javax.swing.JLabel();
-        lbl_DNI = new javax.swing.JLabel();
-        lbl_nombre = new javax.swing.JLabel();
-        lbl_apellido = new javax.swing.JLabel();
-        lbl_direccion = new javax.swing.JLabel();
-        lbl_telefono = new javax.swing.JLabel();
-        lbl_fnac = new javax.swing.JLabel();
-        sep_title_txt = new javax.swing.JSeparator();
-        sep_txt_save = new javax.swing.JSeparator();
-        btn_previous = new javax.swing.JButton();
-        btn_next = new javax.swing.JButton();
-        btn_save = new javax.swing.JButton();
-        lbl_index = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JLabel lbl_title = new javax.swing.JLabel();
+        javax.swing.JLabel lbl_DNI = new javax.swing.JLabel();
+        javax.swing.JLabel lbl_nombre = new javax.swing.JLabel();
+        javax.swing.JLabel lbl_apellido = new javax.swing.JLabel();
+        javax.swing.JLabel lbl_direccion = new javax.swing.JLabel();
+        javax.swing.JLabel lbl_telefono = new javax.swing.JLabel();
+        javax.swing.JLabel lbl_fnac = new javax.swing.JLabel();
+        javax.swing.JSeparator sep_title_txt = new javax.swing.JSeparator();
+        javax.swing.JSeparator sep_txt_save = new javax.swing.JSeparator();
+        javax.swing.JButton btn_previous = new javax.swing.JButton();
+        // Variables declaration - do not modify
+        javax.swing.JButton btn_next = new javax.swing.JButton();
+        javax.swing.JButton btn_save = new javax.swing.JButton();
+        javax.swing.JLabel lbl_index = new javax.swing.JLabel();
         txt_telephone = new javax.swing.JTextField();
         txt_index = new javax.swing.JTextField();
         txt_surname = new javax.swing.JTextField();
@@ -49,28 +51,28 @@ public class Display_EDiary extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbl_title.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        lbl_title.setFont(new java.awt.Font("Dialog", Font.PLAIN, 36)); // NOI18N
         lbl_title.setText("Electronic Diary");
 
-        lbl_DNI.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lbl_DNI.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         lbl_DNI.setText("DNI :");
 
-        lbl_nombre.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lbl_nombre.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         lbl_nombre.setText("Name :");
 
-        lbl_apellido.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lbl_apellido.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         lbl_apellido.setText("Surname :");
 
-        lbl_direccion.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lbl_direccion.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         lbl_direccion.setText("Address :");
 
-        lbl_telefono.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lbl_telefono.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         lbl_telefono.setText("Telephone :");
 
-        lbl_fnac.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lbl_fnac.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         lbl_fnac.setText("Birthday :");
 
-        btn_previous.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_previous.setFont(new java.awt.Font("Dialog", Font.PLAIN, 14)); // NOI18N
         btn_previous.setText("<<");
         btn_previous.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +80,7 @@ public class Display_EDiary extends javax.swing.JFrame {
             }
         });
 
-        btn_next.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_next.setFont(new java.awt.Font("Dialog", Font.PLAIN, 14)); // NOI18N
         btn_next.setText(">>");
         btn_next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +88,7 @@ public class Display_EDiary extends javax.swing.JFrame {
             }
         });
 
-        btn_save.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btn_save.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         btn_save.setText("SAVE");
         btn_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,11 +96,11 @@ public class Display_EDiary extends javax.swing.JFrame {
             }
         });
 
-        lbl_index.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lbl_index.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         lbl_index.setText("Index:");
 
         txt_index.setEditable(false);
-        txt_index.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_index.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         txt_index.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_index.setText("0");
 
@@ -212,8 +214,10 @@ public class Display_EDiary extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>
+    }
 
+    // Check if there are more data entries available (not at the last one)
+    // If so, increment the index and update the displayed information accordingly
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {
 
         String txt_index_string = this.txt_index.getText();
@@ -237,6 +241,8 @@ public class Display_EDiary extends javax.swing.JFrame {
 
     }
 
+    // Move to the previous data entry if not at the first one
+    // Decrement the index and update the displayed information accordingly
     private void btn_previousActionPerformed(java.awt.event.ActionEvent evt) {
 
         String txt_index_string = this.txt_index.getText();
@@ -259,6 +265,8 @@ public class Display_EDiary extends javax.swing.JFrame {
         }
     }
 
+    // Update arrays (e.g., dnis, names) with entered information at the current index.
+    // Assumes arrays are used to store contact data.
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {
 
         String txt_index_string = this.txt_index.getText();
@@ -274,22 +282,6 @@ public class Display_EDiary extends javax.swing.JFrame {
     }
 
 
-
-    // Variables declaration - do not modify
-    private javax.swing.JButton btn_next;
-    private javax.swing.JButton btn_previous;
-    private javax.swing.JButton btn_save;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lbl_DNI;
-    private javax.swing.JLabel lbl_apellido;
-    private javax.swing.JLabel lbl_direccion;
-    private javax.swing.JLabel lbl_fnac;
-    private javax.swing.JLabel lbl_index;
-    private javax.swing.JLabel lbl_nombre;
-    private javax.swing.JLabel lbl_telefono;
-    private javax.swing.JLabel lbl_title;
-    private javax.swing.JSeparator sep_title_txt;
-    private javax.swing.JSeparator sep_txt_save;
     private javax.swing.JTextField txt_address;
     private javax.swing.JTextField txt_birthday;
     private javax.swing.JTextField txt_dni;
