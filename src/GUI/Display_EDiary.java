@@ -1,6 +1,12 @@
-
 package GUI;
 
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ *
+ * @author lautajam
+ */
 public class Display_EDiary extends javax.swing.JFrame {
 
     /**
@@ -22,19 +28,19 @@ public class Display_EDiary extends javax.swing.JFrame {
         lbl_direccion = new javax.swing.JLabel();
         lbl_telefono = new javax.swing.JLabel();
         lbl_fnac = new javax.swing.JLabel();
-        txt_dni = new javax.swing.JTextField();
         sep_title_txt = new javax.swing.JSeparator();
         sep_txt_save = new javax.swing.JSeparator();
         btn_previous = new javax.swing.JButton();
         btn_next = new javax.swing.JButton();
         btn_save = new javax.swing.JButton();
         lbl_index = new javax.swing.JLabel();
+        txt_telephone = new javax.swing.JTextField();
         txt_index = new javax.swing.JTextField();
-        txt_dni1 = new javax.swing.JTextField();
-        txt_dni2 = new javax.swing.JTextField();
-        txt_dni3 = new javax.swing.JTextField();
-        txt_dni4 = new javax.swing.JTextField();
-        txt_dni5 = new javax.swing.JTextField();
+        txt_surname = new javax.swing.JTextField();
+        txt_name = new javax.swing.JTextField();
+        txt_dni = new javax.swing.JTextField();
+        txt_birthday = new javax.swing.JTextField();
+        txt_address = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,9 +67,19 @@ public class Display_EDiary extends javax.swing.JFrame {
 
         btn_previous.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btn_previous.setText("<<");
+        btn_previous.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_previousActionPerformed(evt);
+            }
+        });
 
         btn_next.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btn_next.setText(">>");
+        btn_next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nextActionPerformed(evt);
+            }
+        });
 
         btn_save.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btn_save.setText("SAVE");
@@ -71,7 +87,10 @@ public class Display_EDiary extends javax.swing.JFrame {
         lbl_index.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lbl_index.setText("Index:");
 
+        txt_index.setEditable(false);
         txt_index.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_index.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_index.setText("0");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,15 +112,15 @@ public class Display_EDiary extends javax.swing.JFrame {
                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                 .addComponent(lbl_nombre)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(txt_dni2, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                 .addComponent(lbl_DNI)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(txt_dni3, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                 .addComponent(lbl_apellido)
                                                                 .addGap(18, 18, 18)
-                                                                .addComponent(txt_dni1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                .addComponent(txt_surname, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(lbl_telefono)
@@ -109,9 +128,9 @@ public class Display_EDiary extends javax.swing.JFrame {
                                                         .addComponent(lbl_direccion))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(txt_dni5, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(txt_dni4, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(txt_address, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(txt_birthday, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(txt_telephone, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(0, 0, Short.MAX_VALUE)))
                                 .addContainerGap())
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -140,21 +159,21 @@ public class Display_EDiary extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lbl_DNI)
-                                        .addComponent(txt_dni3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(lbl_direccion)
-                                        .addComponent(txt_dni5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txt_address, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lbl_telefono)
                                         .addComponent(lbl_nombre)
-                                        .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txt_dni2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txt_telephone, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lbl_apellido)
-                                        .addComponent(txt_dni1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txt_surname, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(lbl_fnac)
-                                        .addComponent(txt_dni4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txt_birthday, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(sep_txt_save, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -185,6 +204,33 @@ public class Display_EDiary extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
+    private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {
+
+        String txt_index_string = this.txt_index.getText();
+
+        if(!txt_index_string.equals("9")){
+            int txt_index_number = Integer.parseInt(txt_index_string);
+
+            txt_index_string = String.valueOf(txt_index_number + 1);
+
+            this.txt_index.setText(txt_index_string);
+        }
+
+    }
+
+    private void btn_previousActionPerformed(java.awt.event.ActionEvent evt) {
+
+        String txt_index_string = this.txt_index.getText();
+
+        if(!txt_index_string.equals("0")){
+            int txt_index_number = Integer.parseInt(txt_index_string);
+
+            txt_index_string = String.valueOf(txt_index_number - 1);
+
+            this.txt_index.setText(txt_index_string);
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -204,12 +250,12 @@ public class Display_EDiary extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_title;
     private javax.swing.JSeparator sep_title_txt;
     private javax.swing.JSeparator sep_txt_save;
+    private javax.swing.JTextField txt_address;
+    private javax.swing.JTextField txt_birthday;
     private javax.swing.JTextField txt_dni;
-    private javax.swing.JTextField txt_dni1;
-    private javax.swing.JTextField txt_dni2;
-    private javax.swing.JTextField txt_dni3;
-    private javax.swing.JTextField txt_dni4;
-    private javax.swing.JTextField txt_dni5;
     private javax.swing.JTextField txt_index;
+    private javax.swing.JTextField txt_name;
+    private javax.swing.JTextField txt_surname;
+    private javax.swing.JTextField txt_telephone;
     // End of variables declaration
 }
